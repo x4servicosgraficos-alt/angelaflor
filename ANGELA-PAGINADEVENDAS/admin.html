@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angela Flor — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:     #000000;
+      --black-mid: #0D0D0D;
+      --gold:      #C9A84C;
+      --gold-l:    #F0D080;
+      --gold-p:    rgba(201,168,76,0.12);
+      --white:     #FFFFFF;
+      --soft:      rgba(255,255,255,0.6);
+      --dim:       rgba(255,255,255,0.25);
+      --red:       #e05555;
+      --green:     #55c97a;
+      --amber:     #d4913a;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 300; min-height: 100vh; overflow-x: hidden; }
+    a { text-decoration: none; }
+
+    /* ── Login ────────────────────────────────── */
+    #loginWrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px 20px; }
+    .login-card { width: 100%; max-width: 380px; border: 1px solid rgba(201,168,76,0.3); padding: 40px 28px; }
+    .login-logo { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.6rem; color: var(--white); text-align: center; margin-bottom: 4px; }
+    .login-sub { font-family: 'Montserrat', sans-serif; font-size: .6rem; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 32px; opacity: .7; }
+    .lf { margin-bottom: 16px; }
+    .ll { display: block; font-family: 'Montserrat', sans-serif; font-size: .6rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); opacity: .7; margin-bottom: 7px; }
+    .li { width: 100%; padding: 13px 14px; background: #000; border: 1px solid rgba(201,168,76,0.25); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: .92rem; font-weight: 300; outline: none; transition: border-color .2s; border-radius: 0; }
+    .li:focus { border-color: var(--gold); }
+    .li::placeholder { color: rgba(255,255,255,.14); }
+
+    /* ── Admin panel ──────────────────────────── */
+    #adminPanel { display: none; max-width: 480px; margin: 0 auto; }
+
+    /* ── Header ───────────────────────────────── */
+    .adm-hdr { padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .adm-hdr-left h1 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: var(--white); }
+    .adm-hdr-left small { font-family: 'Montserrat', sans-serif; font-size: .58rem; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; opacity: .55; display: block; margin-top: 3px; }
+
+    /* ── Tabs ─────────────────────────────────── */
+    .tabs { display: flex; border-bottom: 1px solid rgba(201,168,76,0.15); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .tab { flex: 1; min-width: 80px; padding: 14px 10px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: .62rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.3); cursor: pointer; border-bottom: 2px solid transparent; transition: all .2s; white-space: nowrap; }
+    .tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .tab:hover:not(.active) { color: rgba(201,168,76,.5); }
+
+    /* ── Content ──────────────────────────────── */
+    .adm-body { padding: 24px 20px 60px; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .sec-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--white); margin-bottom: 16px; }
+    .eyebrow { display: block; font-family: 'Montserrat', sans-serif; font-size: .58rem; font-weight: 500; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; opacity: .6; }
+    .sep { height: 1px; background: rgba(201,168,76,0.12); margin: 20px 0; }
+
+    /* ── Date row ─────────────────────────────── */
+    .date-row { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 16px; }
+    .date-row input[type="date"] { flex: 1; padding: 12px 13px; background: #000; border: 1px solid rgba(201,168,76,0.25); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: .88rem; font-weight: 300; outline: none; transition: border-color .2s; border-radius: 0; color-scheme: dark; }
+    .date-row input[type="date"]:focus { border-color: var(--gold); }
+
+    /* ── Appointment card ─────────────────────── */
+    .apt-card { border: 1px solid rgba(201,168,76,0.18); border-left: 3px solid rgba(201,168,76,0.4); padding: 16px; margin-bottom: 10px; transition: opacity .2s; }
+    .apt-card.confirmado { border-left-color: var(--green); }
+    .apt-card.cancelado { border-left-color: rgba(255,255,255,.1); opacity: .45; }
+    .apt-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
+    .apt-hora { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--gold); line-height: 1; }
+    .apt-badge { font-family: 'Montserrat', sans-serif; font-size: .58rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border: 1px solid; }
+    .badge-pendente  { color: var(--amber); border-color: rgba(212,145,58,.35); }
+    .badge-confirmado{ color: var(--green); border-color: rgba(85,201,122,.35); }
+    .badge-cancelado { color: rgba(255,255,255,.3); border-color: rgba(255,255,255,.12); }
+    .apt-info { font-family: 'Montserrat', sans-serif; font-size: .82rem; font-weight: 300; color: var(--soft); line-height: 1.8; }
+    .apt-info strong { color: var(--white); font-weight: 500; display: block; margin-bottom: 2px; }
+    .apt-wpp { color: #4ecca3; font-weight: 500; }
+    .apt-svc { color: var(--gold); }
+    .apt-actions { display: flex; gap: 8px; margin-top: 12px; }
+    .abtn { flex: 1; padding: 9px 10px; border: 1px solid; font-family: 'Montserrat', sans-serif; font-size: .62rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all .2s; background: transparent; }
+    .abtn:disabled { opacity: .35; cursor: not-allowed; }
+    .abtn-conf { color: var(--green); border-color: rgba(85,201,122,.35); }
+    .abtn-conf:hover:not(:disabled) { background: rgba(85,201,122,.08); border-color: var(--green); }
+    .abtn-canc { color: var(--red); border-color: rgba(224,85,85,.3); }
+    .abtn-canc:hover:not(:disabled) { background: rgba(224,85,85,.08); border-color: var(--red); }
+
+    /* ── Block form ───────────────────────────── */
+    .block-card { border: 1px solid rgba(201,168,76,0.2); padding: 20px; margin-bottom: 20px; }
+    .block-card h3 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--white); margin-bottom: 16px; }
+    .bf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .bf-f label { display: block; font-family: 'Montserrat', sans-serif; font-size: .58rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); opacity: .65; margin-bottom: 6px; }
+    .bf-f select, .bf-f input[type="date"] { width: 100%; padding: 11px 12px; background: #000; border: 1px solid rgba(201,168,76,0.22); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: .86rem; font-weight: 300; outline: none; transition: border-color .2s; border-radius: 0; color-scheme: dark; }
+    .bf-f select:focus, .bf-f input[type="date"]:focus { border-color: var(--gold); }
+    .bf-f select option { background: #111; }
+    .bf-motivo { margin-bottom: 14px; }
+    .bf-motivo label { display: block; font-family: 'Montserrat', sans-serif; font-size: .58rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); opacity: .65; margin-bottom: 6px; }
+    .bf-motivo input { width: 100%; padding: 11px 12px; background: #000; border: 1px solid rgba(201,168,76,0.22); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: .86rem; font-weight: 300; outline: none; transition: border-color .2s; border-radius: 0; }
+    .bf-motivo input:focus { border-color: var(--gold); }
+    .bf-motivo input::placeholder { color: rgba(255,255,255,.13); }
+
+    /* ── Blocked list ─────────────────────────── */
+    .blk-item { border: 1px solid rgba(201,168,76,0.15); padding: 14px 16px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .blk-dt { font-family: 'Playfair Display', serif; font-style: italic; font-size: .95rem; color: var(--gold); display: block; margin-bottom: 2px; }
+    .blk-mot { font-family: 'Montserrat', sans-serif; font-size: .72rem; color: rgba(255,255,255,.3); }
+
+    /* ── Buttons ──────────────────────────────── */
+    .btn { display: block; width: 100%; padding: 14px; border: none; font-family: 'Montserrat', sans-serif; font-size: .76rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; text-align: center; transition: all .2s; }
+    .btn:disabled { opacity: .4; cursor: not-allowed; }
+    .btn-g { background: var(--gold); color: #000; }
+    .btn-g:hover:not(:disabled) { background: var(--gold-l); }
+    .btn-o { background: transparent; color: var(--gold); border: 1px solid rgba(201,168,76,.35); }
+    .btn-o:hover:not(:disabled) { border-color: var(--gold); background: rgba(201,168,76,.05); }
+    .btn-red { background: transparent; color: var(--red); border: 1px solid rgba(224,85,85,.3); padding: 8px 14px; font-size: .6rem; letter-spacing: 1.5px; white-space: nowrap; }
+    .btn-red:hover { background: rgba(224,85,85,.08); border-color: var(--red); }
+
+    /* ── Messages ─────────────────────────────── */
+    .msg { padding: 11px 14px; margin-bottom: 12px; font-family: 'Montserrat', sans-serif; font-size: .74rem; font-weight: 500; display: none; }
+    .msg.show { display: block; }
+    .msg-e { background: rgba(200,0,0,.13); color: #ff7777; border-left: 2px solid #c00; }
+    .msg-s { background: rgba(0,160,0,.1); color: #77ee88; border-left: 2px solid #070; }
+
+    /* ── Spinner / Loading ────────────────────── */
+    .ld { text-align: center; padding: 28px 16px; color: rgba(255,255,255,.2); font-family: 'Montserrat', sans-serif; font-size: .72rem; letter-spacing: 1px; }
+    .spin { width: 26px; height: 26px; border: 2px solid rgba(201,168,76,.12); border-top-color: var(--gold); border-radius: 50%; animation: sp .8s linear infinite; margin: 0 auto 10px; }
+    @keyframes sp { to { transform: rotate(360deg); } }
+
+    .empty { text-align: center; padding: 32px 16px; color: rgba(255,255,255,.2); font-family: 'Montserrat', sans-serif; font-size: .8rem; letter-spacing: 1px; }
+    .empty-ico { font-size: 1.8rem; display: block; margin-bottom: 10px; opacity: .4; }
+  </style>
+</head>
+<body>
+
+<!-- ══ LOGIN ══════════════════════════════════════════ -->
+<div id="loginWrap">
+  <div class="login-card">
+    <h1 class="login-logo">Angela Flor</h1>
+    <span class="login-sub">Painel Administrativo</span>
+    <form id="loginForm" onsubmit="doLogin(event)">
+      <div class="lf">
+        <label class="ll" for="lEmail">E-mail</label>
+        <input class="li" type="email" id="lEmail" placeholder="seu@email.com" required autocomplete="email">
+      </div>
+      <div class="lf">
+        <label class="ll" for="lPwd">Senha</label>
+        <input class="li" type="password" id="lPwd" placeholder="••••••••" required autocomplete="current-password">
+      </div>
+      <div class="msg msg-e" id="msgLogin"></div>
+      <button class="btn btn-g" type="submit" id="btnLogin">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<!-- ══ ADMIN ═══════════════════════════════════════════ -->
+<div id="adminPanel">
+
+  <div class="adm-hdr">
+    <div class="adm-hdr-left">
+      <h1>Angela Flor</h1>
+      <small id="uEmail">admin</small>
+    </div>
+    <button onclick="doLogout()" class="btn btn-o" style="width:auto;padding:9px 18px;font-size:.62rem;letter-spacing:2px;">Sair</button>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('agenda')">Agenda</div>
+    <div class="tab" onclick="switchTab('bloquear')">Bloquear</div>
+    <div class="tab" onclick="switchTab('desbloquear')">Desbloquear</div>
+  </div>
+
+  <div class="adm-body">
+
+    <!-- Tab: Agenda -->
+    <div class="tab-panel active" id="tab-agenda">
+      <span class="eyebrow">Agenda</span>
+      <h2 class="sec-title">Agendamentos</h2>
+      <div class="date-row">
+        <input type="date" id="agendaDate">
+        <button class="btn btn-g" style="width:auto;padding:12px 20px;" onclick="loadAgenda()">Ver</button>
+      </div>
+      <div class="msg msg-e" id="msgAgenda"></div>
+      <div id="agendaList"><div class="ld"><div class="spin"></div>Carregando...</div></div>
+    </div>
+
+    <!-- Tab: Bloquear -->
+    <div class="tab-panel" id="tab-bloquear">
+      <span class="eyebrow">Bloqueio</span>
+      <h2 class="sec-title">Bloquear Horário</h2>
+      <div class="block-card">
+        <h3>Adicionar bloqueio</h3>
+        <div class="bf-grid">
+          <div class="bf-f">
+            <label for="blkDate">Data</label>
+            <input type="date" id="blkDate">
+          </div>
+          <div class="bf-f">
+            <label for="blkHora">Horário</label>
+            <select id="blkHora">
+              <option value="">Selecione...</option>
+              <option>09:00</option><option>10:30</option><option>12:00</option>
+              <option>13:30</option><option>15:00</option><option>16:30</option>
+            </select>
+          </div>
+        </div>
+        <div class="bf-motivo">
+          <label for="blkMotivo">Motivo (opcional)</label>
+          <input type="text" id="blkMotivo" placeholder="Ex: Reserva pessoal">
+        </div>
+        <div class="msg msg-e" id="msgBlkErr"></div>
+        <div class="msg msg-s" id="msgBlkOk"></div>
+        <button class="btn btn-g" id="btnBlk" onclick="addBlock()">Bloquear horário</button>
+      </div>
+    </div>
+
+    <!-- Tab: Desbloquear -->
+    <div class="tab-panel" id="tab-desbloquear">
+      <span class="eyebrow">Bloqueios ativos</span>
+      <h2 class="sec-title">Desbloquear Horário</h2>
+      <div class="msg msg-e" id="msgDbErr"></div>
+      <div class="msg msg-s" id="msgDbOk"></div>
+      <div id="blkList"><div class="ld"><div class="spin"></div>Carregando...</div></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const { createClient } = supabase;
+const sb = createClient(
+  'https://qjegvyhqdzecoujjhgqk.supabase.co',
+  'sb_publishable_K8SvMPdlcHrGeZdCw5apQA_nC8jknat'
+);
+
+function fmtD(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function fmtBR(s){ const[y,m,d]=s.split('-'); return d+'/'+m+'/'+y; }
+function showMsg(id,txt,t){ const e=document.getElementById(id); e.className='msg msg-'+t+' show'; e.textContent=txt; }
+function hideMsg(id){ document.getElementById(id).classList.remove('show'); }
+function fmtWpp(n){ if(!n) return ''; if(n.length===11) return `(${n.slice(0,2)}) ${n.slice(2,7)}-${n.slice(7)}`; if(n.length===10) return `(${n.slice(0,2)}) ${n.slice(2,6)}-${n.slice(6)}`; return n; }
+
+// ── Auth ─────────────────────────────────────────
+async function init() {
+  const { data:{ session } } = await sb.auth.getSession();
+  if(session) showAdmin(session.user);
+}
+
+async function doLogin(e) {
+  e.preventDefault();
+  const btn=document.getElementById('btnLogin');
+  btn.disabled=true; btn.textContent='Entrando...';
+  hideMsg('msgLogin');
+  const { data, error } = await sb.auth.signInWithPassword({
+    email:    document.getElementById('lEmail').value.trim(),
+    password: document.getElementById('lPwd').value
+  });
+  if(error){ showMsg('msgLogin','E-mail ou senha inválidos.','e'); btn.disabled=false; btn.textContent='Entrar'; return; }
+  showAdmin(data.user);
+}
+
+function showAdmin(user) {
+  document.getElementById('loginWrap').style.display='none';
+  document.getElementById('adminPanel').style.display='block';
+  document.getElementById('uEmail').textContent = user.email;
+  const today=fmtD(new Date());
+  document.getElementById('agendaDate').value=today;
+  document.getElementById('blkDate').value=today;
+  loadAgenda();
+}
+
+async function doLogout() {
+  await sb.auth.signOut();
+  document.getElementById('adminPanel').style.display='none';
+  document.getElementById('loginWrap').style.display='flex';
+  document.getElementById('lPwd').value='';
+  hideMsg('msgLogin');
+}
+
+// ── Tabs ─────────────────────────────────────────
+function switchTab(name) {
+  const names=['agenda','bloquear','desbloquear'];
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',names[i]===name));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  if(name==='desbloquear') loadBlocked();
+}
+
+// ── Agenda ────────────────────────────────────────
+async function loadAgenda() {
+  const date=document.getElementById('agendaDate').value;
+  if(!date){ showMsg('msgAgenda','Selecione uma data.','e'); return; }
+  hideMsg('msgAgenda');
+  const list=document.getElementById('agendaList');
+  list.innerHTML='<div class="ld"><div class="spin"></div>Carregando...</div>';
+  const { data, error } = await sb.from('agendamentos').select('*').eq('data',date).order('horario');
+  if(error){ list.innerHTML='<div class="msg msg-e show">Erro ao carregar agenda.</div>'; return; }
+  if(!data||!data.length){ list.innerHTML=`<div class="empty"><span class="empty-ico">📅</span>Nenhum agendamento para ${fmtBR(date)}.</div>`; return; }
+  list.innerHTML=data.map(a=>aptCard(a)).join('');
+}
+
+function aptCard(a) {
+  const st=a.status||'pendente';
+  const wNum=(a.whatsapp||'').replace(/\D/g,'');
+  const wLink=wNum?`<a class="apt-wpp" href="https://wa.me/55${wNum}" target="_blank">📱 ${fmtWpp(wNum)}</a>`:'—';
+  const valor=a.servico_valor?` <span class="apt-svc">R$ ${parseFloat(a.servico_valor).toFixed(2).replace('.',',')}</span>`:'';
+  return `<div class="apt-card ${st}" id="apt-${a.id}">
+    <div class="apt-head">
+      <span class="apt-hora">${a.horario}</span>
+      <span class="apt-badge badge-${st}">${st}</span>
+    </div>
+    <div class="apt-info">
+      <strong>${a.nome_cliente||'—'}</strong>
+      ${wLink}<br>
+      ${a.servico_nome||'—'}${valor}
+    </div>
+    ${st!=='cancelado'?`<div class="apt-actions">
+      <button class="abtn abtn-conf" id="bc-${a.id}" onclick="updStatus(${a.id},'confirmado')" ${st==='confirmado'?'disabled':''}>
+        ${st==='confirmado'?'✓ Confirmado':'Confirmar'}
+      </button>
+      <button class="abtn abtn-canc" onclick="updStatus(${a.id},'cancelado')">Cancelar</button>
+    </div>`:''}
+  </div>`;
+}
+
+async function updStatus(id, status) {
+  const card=document.getElementById('apt-'+id);
+  card.querySelectorAll('.abtn').forEach(b=>b.disabled=true);
+  const { error }=await sb.from('agendamentos').update({ status }).eq('id',id);
+  if(error){ card.querySelectorAll('.abtn').forEach(b=>b.disabled=false); showMsg('msgAgenda','Erro ao atualizar.','e'); return; }
+  loadAgenda();
+}
+
+// ── Bloquear ──────────────────────────────────────
+async function addBlock() {
+  const date=document.getElementById('blkDate').value;
+  const hora=document.getElementById('blkHora').value;
+  const motivo=document.getElementById('blkMotivo').value.trim();
+  hideMsg('msgBlkErr'); hideMsg('msgBlkOk');
+  if(!date||!hora){ showMsg('msgBlkErr','Selecione data e horário.','e'); return; }
+  const btn=document.getElementById('btnBlk');
+  btn.disabled=true; btn.textContent='Bloqueando...';
+  const { error }=await sb.from('horarios_bloqueados').insert({ data:date, hora:hora, motivo:motivo||null });
+  btn.disabled=false; btn.textContent='Bloquear horário';
+  if(error){ showMsg('msgBlkErr','Erro ao bloquear. Pode já existir.','e'); return; }
+  showMsg('msgBlkOk',`Horário ${hora} do dia ${fmtBR(date)} bloqueado.`,'s');
+  document.getElementById('blkMotivo').value='';
+}
+
+// ── Desbloquear ───────────────────────────────────
+async function loadBlocked() {
+  const list=document.getElementById('blkList');
+  list.innerHTML='<div class="ld"><div class="spin"></div>Carregando...</div>';
+  const today=fmtD(new Date());
+  const { data, error }=await sb.from('horarios_bloqueados').select('*').gte('data',today).order('data').order('hora');
+  if(error){ list.innerHTML='<div class="msg msg-e show">Erro ao carregar bloqueios.</div>'; return; }
+  if(!data||!data.length){ list.innerHTML='<div class="empty"><span class="empty-ico">✦</span>Nenhum horário bloqueado.</div>'; return; }
+  list.innerHTML=data.map(b=>`
+    <div class="blk-item" id="blk-${b.id}">
+      <div>
+        <span class="blk-dt">${fmtBR(b.data)} · ${b.hora}</span>
+        <span class="blk-mot">${b.motivo||'Sem motivo'}</span>
+      </div>
+      <button class="btn btn-red" onclick="removeBlock(${b.id})">Remover</button>
+    </div>`).join('');
+}
+
+async function removeBlock(id) {
+  const el=document.getElementById('blk-'+id);
+  el.style.opacity='.4';
+  const { error }=await sb.from('horarios_bloqueados').delete().eq('id',id);
+  if(error){ el.style.opacity='1'; showMsg('msgDbErr','Erro ao remover.','e'); return; }
+  hideMsg('msgDbErr');
+  showMsg('msgDbOk','Bloqueio removido com sucesso.','s');
+  el.remove();
+}
+
+init();
+</script>
+</body>
+</html>

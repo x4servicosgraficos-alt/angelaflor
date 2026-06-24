@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Angela Flor Esmalteria | Unhas de Gel Fortaleza</title>
+  <meta name="description" content="Especialista em unhas de gel e acrílico em Fortaleza. Mais de 10 anos de experiência. Agende pelo WhatsApp.">
+  <meta property="og:title" content="Angela Flor Esmalteria">
+  <meta property="og:description" content="10 anos transformando unhas em Fortaleza com técnica e cuidado.">
+  <meta property="og:image" content="hero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ══════════════════════════════════════
+       VARIÁVEIS
+    ══════════════════════════════════════ */
+    :root {
+      --black:      #000000;
+      --black-mid:  #0D0D0D;
+      --gold:       #C9A84C;
+      --gold-light: #F0D080;
+      --gold-pale:  rgba(201,168,76,0.15);
+      --white:      #FFFFFF;
+      --text-soft:  rgba(255,255,255,0.6);
+    }
+
+    /* ══════════════════════════════════════
+       RESET E BASE
+    ══════════════════════════════════════ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      padding-bottom: 80px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    img  { max-width: 100%; display: block; }
+    a    { text-decoration: none; }
+
+    /* ══════════════════════════════════════
+       SEPARADOR DOURADO
+    ══════════════════════════════════════ */
+    .sep {
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(201,168,76,0.4) 35%,
+        rgba(201,168,76,0.4) 65%,
+        transparent 100%
+      );
+    }
+
+    /* ══════════════════════════════════════
+       EYEBROW
+    ══════════════════════════════════════ */
+    .eyebrow {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    /* ══════════════════════════════════════
+       TÍTULO DE SEÇÃO
+    ══════════════════════════════════════ */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 26px;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    /* ══════════════════════════════════════
+       LINHA DOURADA CENTRALIZADA
+    ══════════════════════════════════════ */
+    .gold-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.55;
+      margin: 18px auto 28px;
+    }
+
+    /* ══════════════════════════════════════
+       CARROSSEL CSS PURO
+    ══════════════════════════════════════ */
+    .carousel-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 12px;
+      width: max-content;
+      animation: scrollTrack 18s linear infinite;
+    }
+
+    .carousel-track img {
+      height: 300px;
+      width: 220px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid rgba(201,168,76,0.5);
+      display: block;
+    }
+
+    @keyframes scrollTrack {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ══════════════════════════════════════
+       CONTADOR
+    ══════════════════════════════════════ */
+    .counter-grid {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr 1px 1fr;
+      align-items: center;
+      padding: 44px 28px;
+      background: var(--black);
+    }
+
+    .counter-vline {
+      height: 44px;
+      background: rgba(201,168,76,0.25);
+    }
+
+    .counter-cell { text-align: center; }
+
+    .counter-num {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 40px;
+      font-weight: 600;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+    }
+
+    .counter-label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    /* ══════════════════════════════════════
+       SERVIÇOS
+    ══════════════════════════════════════ */
+    .service-item {
+      border-bottom: 1px solid rgba(201,168,76,0.18);
+      padding: 24px 0;
+    }
+
+    .service-item:last-child { border-bottom: none; }
+
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .service-desc {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+
+    .service-dur {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: var(--gold);
+      opacity: 0.6;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════════
+       PLANOS
+    ══════════════════════════════════════ */
+    .plan-card {
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 28px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .plan-card:last-child { margin-bottom: 0; }
+
+    .plan-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
+
+    .plan-name {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .plan-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .plan-list {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .plan-list li {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .plan-list li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 8px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .btn-gold-solid {
+      display: block;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 14px;
+    }
+
+    .btn-gold-outline {
+      display: block;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 14px;
+    }
+
+    /* ══════════════════════════════════════
+       PAGAMENTO — ÍCONES
+    ══════════════════════════════════════ */
+    .pay-icon {
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+    }
+
+    .pay-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* ══════════════════════════════════════
+       DEPOIMENTOS
+    ══════════════════════════════════════ */
+    .review-card {
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 24px;
+      margin-bottom: 14px;
+    }
+
+    .review-card:last-child { margin-bottom: 0; }
+
+    /* ══════════════════════════════════════
+       FAQ
+    ══════════════════════════════════════ */
+    .faq-item { border-bottom: 1px solid rgba(201,168,76,0.15); }
+
+    .faq-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: none;
+      border: none;
+      padding: 18px 0;
+      cursor: pointer;
+      text-align: left;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .faq-question {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gold);
+      flex: 1;
+      padding-right: 16px;
+      line-height: 1.5;
+    }
+
+    .faq-icon {
+      color: var(--gold);
+      font-size: 20px;
+      font-family: monospace;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .faq-content p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      padding-bottom: 18px;
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER NAV
+    ══════════════════════════════════════ */
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 6px 14px;
+      margin-bottom: 24px;
+    }
+
+    .footer-nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .footer-nav .dot {
+      color: rgba(201,168,76,0.3);
+      font-size: 10px;
+    }
+
+    /* ══════════════════════════════════════
+       MODAL DE AGENDAMENTO
+    ══════════════════════════════════════ */
+    .mpanel { display:none; }
+    .mpanel.active { display:block; }
+    .msdot { width:26px; height:26px; border-radius:50%; border:1px solid rgba(201,168,76,.25); color:rgba(201,168,76,.35); font-size:.68rem; font-family:'Montserrat',sans-serif; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all .3s; }
+    .msdot.active { border-color:var(--gold); color:var(--gold); }
+    .msdot.done { background:var(--gold); color:#000; border-color:var(--gold); }
+    .msline { height:1px; background:rgba(201,168,76,.15); width:16px; flex-shrink:0; transition:background .3s; }
+    .msline.done { background:rgba(201,168,76,.5); }
+    .m-h { font-family:'Playfair Display',serif; font-style:italic; font-size:1.3rem; color:var(--white); margin-bottom:20px; text-align:center; }
+    .m-ey { display:block; font-family:'Montserrat',sans-serif; font-size:.58rem; font-weight:500; color:var(--gold); letter-spacing:3px; text-transform:uppercase; text-align:center; margin-bottom:8px; opacity:.55; }
+    .msvc-grp { font-family:'Montserrat',sans-serif; font-size:.6rem; font-weight:500; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin:16px 0 8px; opacity:.55; }
+    .msvc { border:1px solid rgba(201,168,76,.2); padding:14px 16px; margin-bottom:8px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:border-color .2s; -webkit-tap-highlight-color:transparent; }
+    .msvc:hover { border-color:rgba(201,168,76,.6); }
+    .msvc.sel { border-color:var(--gold); background:rgba(201,168,76,.06); }
+    .msvc-n { font-family:'Montserrat',sans-serif; font-size:.84rem; font-weight:400; color:rgba(255,255,255,.85); }
+    .msvc-p { font-family:'Playfair Display',serif; font-style:italic; font-size:.98rem; color:var(--gold); flex-shrink:0; }
+    .msvc-ck { color:var(--gold); opacity:0; margin-left:6px; font-size:.75rem; }
+    .msvc.sel .msvc-ck { opacity:1; }
+    .mcal { background:#000; border:1px solid rgba(201,168,76,.12); padding:12px; margin-bottom:12px; }
+    .mcal-m { font-family:'Playfair Display',serif; font-style:italic; font-size:.88rem; color:var(--white); text-align:center; margin-bottom:10px; }
+    .mcal-wds { display:grid; grid-template-columns:repeat(7,1fr); margin-bottom:3px; }
+    .mcal-wd { text-align:center; font-family:'Montserrat',sans-serif; font-size:.5rem; color:rgba(255,255,255,.22); text-transform:uppercase; letter-spacing:.3px; padding:3px 0; }
+    .mcal-ds { display:grid; grid-template-columns:repeat(7,1fr); gap:1px; }
+    .mcd { aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:400; color:rgba(255,255,255,.4); cursor:pointer; transition:all .15s; -webkit-tap-highlight-color:transparent; }
+    .mcd.emp { visibility:hidden; pointer-events:none; }
+    .mcd.old, .mcd.sun { color:rgba(255,255,255,.1); pointer-events:none; }
+    .mcd.full { color:rgba(255,255,255,.12); pointer-events:none; text-decoration:line-through; font-size:.62rem; }
+    .mcd.ok:hover { color:var(--gold); }
+    .mcd.on { background:var(--gold); color:#000 !important; font-weight:600; }
+    .msi { font-family:'Montserrat',sans-serif; font-size:.66rem; color:rgba(255,255,255,.35); letter-spacing:2px; text-align:center; margin-bottom:14px; text-transform:uppercase; }
+    .mslg { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+    .mslot { padding:13px; border:1px solid rgba(201,168,76,.3); background:transparent; font-family:'Montserrat',sans-serif; font-size:.88rem; font-weight:500; color:var(--gold); cursor:pointer; transition:all .2s; letter-spacing:1px; -webkit-tap-highlight-color:transparent; }
+    .mslot:hover:not(:disabled) { background:rgba(201,168,76,.07); border-color:var(--gold); }
+    .mslot.on { background:var(--gold); color:#000; border-color:var(--gold); }
+    .mslot:disabled { border-color:rgba(255,255,255,.06); color:rgba(255,255,255,.13); cursor:not-allowed; text-decoration:line-through; }
+    .mff { margin-bottom:16px; }
+    .mfl { display:block; font-family:'Montserrat',sans-serif; font-size:.6rem; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--gold); opacity:.7; margin-bottom:6px; }
+    .mfi { width:100%; padding:13px 14px; background:#000; border:1px solid rgba(201,168,76,.25); color:var(--white); font-family:'Montserrat',sans-serif; font-size:.92rem; font-weight:300; outline:none; transition:border-color .2s; border-radius:0; -webkit-appearance:none; }
+    .mfi:focus { border-color:var(--gold); }
+    .mfi::placeholder { color:rgba(255,255,255,.14); }
+    .mcard { border:1px solid rgba(201,168,76,.18); padding:18px; margin-bottom:14px; }
+    .mrow { display:flex; justify-content:space-between; align-items:flex-start; padding:8px 0; border-bottom:1px solid rgba(201,168,76,.07); gap:12px; }
+    .mrow:last-child { border-bottom:none; }
+    .mrow .ml { font-family:'Montserrat',sans-serif; font-size:.58rem; color:rgba(255,255,255,.3); letter-spacing:1.5px; text-transform:uppercase; white-space:nowrap; padding-top:2px; }
+    .mrow .mv { font-family:'Montserrat',sans-serif; font-size:.84rem; color:var(--white); font-weight:400; text-align:right; }
+    .mpix { border:1px solid rgba(201,168,76,.45); padding:20px; text-align:center; margin-bottom:14px; }
+    .mpix-lb { font-family:'Montserrat',sans-serif; font-size:.6rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); opacity:.62; margin-bottom:8px; }
+    .mpix-v { font-family:'Playfair Display',serif; font-style:italic; font-size:2.2rem; color:var(--gold); line-height:1; margin-bottom:8px; }
+    .mpix-s { font-family:'Montserrat',sans-serif; font-size:.65rem; color:rgba(255,255,255,.28); letter-spacing:1px; margin-bottom:10px; }
+    .mpix-k { background:#000; border:1px solid rgba(201,168,76,.18); padding:9px 13px; font-family:monospace; font-size:.8rem; color:rgba(255,255,255,.5); margin-top:8px; word-break:break-all; }
+    .mbtn { display:block; width:100%; padding:15px; border:none; font-family:'Montserrat',sans-serif; font-size:.75rem; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; cursor:pointer; text-align:center; transition:all .2s; -webkit-tap-highlight-color:transparent; }
+    .mbtn:disabled { opacity:.4; cursor:not-allowed; }
+    .mbtn-g { background:var(--gold); color:#000; }
+    .mbtn-g:hover:not(:disabled) { background:var(--gold-light); }
+    .mbtn-o { background:transparent; color:var(--gold); border:1px solid rgba(201,168,76,.35); }
+    .mbtn-o:hover:not(:disabled) { border-color:var(--gold); background:rgba(201,168,76,.05); }
+    .mbtn-w { background:#25D366; color:#fff; letter-spacing:1.5px; }
+    .mbtn-w:hover:not(:disabled) { background:#22c55d; }
+    .mnav { display:flex; gap:10px; margin-top:20px; }
+    .mnav .mbtn { flex:1; }
+    .mmsg { padding:11px 14px; margin-bottom:12px; font-family:'Montserrat',sans-serif; font-size:.74rem; font-weight:500; display:none; }
+    .mmsg.show { display:block; }
+    .mmsg-e { background:rgba(200,0,0,.14); color:#ff7777; border-left:2px solid #c00; }
+    .mmsg-s { background:rgba(0,160,0,.1); color:#77ee88; border-left:2px solid #070; }
+    .mld { text-align:center; padding:28px 16px; color:rgba(255,255,255,.2); font-family:'Montserrat',sans-serif; font-size:.74rem; letter-spacing:1px; }
+    .mspin { width:26px; height:26px; border:2px solid rgba(201,168,76,.12); border-top-color:var(--gold); border-radius:50%; animation:msp .8s linear infinite; margin:0 auto 10px; }
+    @keyframes msp { to { transform:rotate(360deg); } }
+    .adm-lk { position:fixed; bottom:88px; right:10px; color:rgba(201,168,76,.1); font-size:13px; text-decoration:none; z-index:60; transition:color .2s; }
+    .adm-lk:hover { color:rgba(201,168,76,.38); }
+
+    /* ══════════════════════════════════════
+       BOTÃO FIXO MOBILE
+    ══════════════════════════════════════ */
+    .fixed-cta {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+      padding: 18px;
+      z-index: 50;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       1. HERO
+  ══════════════════════════════════════ -->
+  <section style="background:#000; padding:0; margin:0;">
+    <img src="hero.jpg" alt="Angela Flor" style="width:100%; display:block; margin:0; padding:0;">
+    <div style="margin-top:-280px; padding:0 28px 52px; text-align:center; position:relative; z-index:2;">
+      <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:15px; color:rgba(255,255,255,0.6); margin-bottom:24px; line-height:1.7;">
+        Mais de 10 anos transformando unhas<br>com técnica e cuidado.
+      </p>
+      <div style="display:inline-block; background:var(--gold); color:#000; font-family:'Montserrat',sans-serif; font-size:9px; font-weight:600; letter-spacing:3px; text-transform:uppercase; padding:10px 24px; margin-bottom:20px;">
+        Vagas limitadas por semana
+      </div>
+      <br>
+      <a href="#servicos" style="display:inline-block; border:1px solid #C9A84C; color:#C9A84C; font-family:'Montserrat',sans-serif; font-size:9px; font-weight:500; letter-spacing:3px; text-transform:uppercase; padding:14px 36px; text-decoration:none; margin-top:4px;">
+        Conhecer os Serviços
+      </a>
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ══════════════════════════════════════
+       2. SOBRE
+  ══════════════════════════════════════ -->
+  <section id="sobre" style="background:var(--black-mid); padding:72px 28px 52px; text-align:center;">
+    <span class="eyebrow">Quem é Angela Flor</span>
+    <h2 class="section-title" style="font-size:30px;">10 Anos de Dedicação às Suas Unhas</h2>
+    <div class="gold-rule"></div>
+    <p style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:300; color:rgba(255,255,255,0.6); line-height:1.9;">
+      Sou especialista em unhas de gel e acrílico com mais de 10 anos de experiência aqui em Fortaleza. Cada cliente que atendo recebe minha atenção completa, técnica apurada e um resultado que dura o mês inteiro.
+    </p>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ══════════════════════════════════════
+       3. CONTADOR
+  ══════════════════════════════════════ -->
+  <section>
+    <div class="counter-grid">
+      <div class="counter-cell">
+        <span class="counter-num" data-target="10" data-suffix="+">10+</span>
+        <span class="counter-label">Anos</span>
+      </div>
+      <div class="counter-vline"></div>
+      <div class="counter-cell">
+        <span class="counter-num" data-target="500" data-suffix="+">500+</span>
+        <span class="counter-label">Clientes</span>
+      </div>
+      <div class="counter-vline"></div>
+      <div class="counter-cell">
+        <span class="counter-num" data-target="2" data-suffix="">2</span>
+        <span class="counter-label">Técnicas</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ══════════════════════════════════════
+       4. SERVIÇOS
+  ══════════════════════════════════════ -->
+  <section id="servicos" style="background:var(--black-mid); padding:52px 28px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <span class="eyebrow">A Experiência</span>
+      <h2 class="section-title">Por que escolher a Angela Flor?</h2>
+      <div class="gold-rule" style="margin-bottom:0;"></div>
+    </div>
+
+    <div class="service-item">
+      <p class="service-name">Unhas Finas e Naturais</p>
+      <p class="service-desc">Aplicação que parece com a unha real. Nada de aspecto grosso ou artificial. O resultado é discreto, elegante e combina com qualquer look.</p>
+      <p class="service-dur">Duração média: 1h30</p>
+    </div>
+
+    <div class="service-item">
+      <p class="service-name">Unhas que Duram o Mês Todo</p>
+      <p class="service-desc">Técnica de preparação que evita trincas e descolamentos. Suas unhas ficam perfeitas até a próxima manutenção, sem surpresas no meio do mês.</p>
+      <p class="service-dur">Duração média: 1h</p>
+    </div>
+
+    <div class="service-item">
+      <p class="service-name">Spa das Mãos (Banho de Lua)</p>
+      <p class="service-desc">Esfoliação e hidratação profunda nas mãos durante o atendimento. Você sai renovada por dentro e por fora, com as mãos macias e cuidadas.</p>
+      <p class="service-dur">Duração média: 45min</p>
+    </div>
+
+    <div class="service-item">
+      <p class="service-name">Higiene e Segurança em Primeiro Lugar</p>
+      <p class="service-desc">Materiais esterilizados a cada atendimento. Sua saúde e segurança vêm sempre em primeiro lugar, sem exceção.</p>
+      <p class="service-dur">Incluso em todos os serviços</p>
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ══════════════════════════════════════
+       5. CARROSSEL INFINITO
+  ══════════════════════════════════════ -->
+  <section id="portfolio" style="background:var(--black); padding:52px 0;">
+    <div style="text-align:center; margin-bottom:32px; padding:0 28px;">
+      <span class="eyebrow">Portfólio</span>
+      <h2 class="section-title">Nosso Trabalho</h2>
+      <div class="gold-rule" style="margin-bottom:0;"></div>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-track">
+        <img src="foto1.png" alt="Trabalho Angela Flor" loading="lazy">
+        <img src="foto2.png" alt="Trabalho Angela Flor" loading="lazy">
+        <img src="foto3.png" alt="Trabalho Angela Flor" loading="lazy">
+        <img src="foto4.png" alt="Trabalho Angela Flor" loading="lazy">
+        <img src="foto1.png" alt="Trabalho Angela Flor" loading="lazy">
+        <img src="foto2.png" alt="Trabalho Angela Flor" loading="lazy">
+        <img src="foto3.png" alt="Trabalho Angela Flor" loading="lazy">
+        <img src="foto4.png" alt="Trabalho Angela Flor" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ══════════════════════════════════════
+       7. FORMAS DE PAGAMENTO
+  ══════════════════════════════════════ -->
+  <section style="background:var(--black); padding:36px 28px; text-align:center;">
+    <span class="eyebrow">Como você pode pagar</span>
+
+    <div style="display:flex; justify-content:center; gap:32px; margin-top:8px; flex-wrap:wrap;">
+
+      <div>
+        <div class="pay-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.5 7.5L5 11l3.5 3.5" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15.5 7.5L19 11l-3.5 3.5" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 5v14" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="12" cy="12" r="9.25" stroke="#C9A84C" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:400; color:#fff; letter-spacing:1px; display:block;">Pix</span>
+      </div>
+
+      <div>
+        <div class="pay-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="5.5" width="19" height="13" stroke="#C9A84C" stroke-width="1.5"/>
+            <line x1="2.5" y1="9.5" x2="21.5" y2="9.5" stroke="#C9A84C" stroke-width="1.5"/>
+            <rect x="4.5" y="12.5" width="4" height="2" fill="#C9A84C"/>
+          </svg>
+        </div>
+        <span style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:400; color:#fff; letter-spacing:1px; display:block;">Cartão</span>
+      </div>
+
+      <div>
+        <div class="pay-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="6.5" width="19" height="11" stroke="#C9A84C" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="2.75" stroke="#C9A84C" stroke-width="1.4"/>
+            <circle cx="5.5" cy="12" r="0.8" fill="#C9A84C"/>
+            <circle cx="18.5" cy="12" r="0.8" fill="#C9A84C"/>
+          </svg>
+        </div>
+        <span style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:400; color:#fff; letter-spacing:1px; display:block;">Dinheiro</span>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ══════════════════════════════════════
+       8. DEPOIMENTOS
+  ══════════════════════════════════════ -->
+  <section style="background:var(--black-mid); padding:52px 28px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <span class="eyebrow">Depoimentos</span>
+      <h2 class="section-title">Quem experimenta, não troca</h2>
+      <div class="gold-rule" style="margin-bottom:0;"></div>
+    </div>
+
+    <div class="review-card">
+      <div style="color:var(--gold); font-size:12px; letter-spacing:3px; margin-bottom:14px;">★★★★★</div>
+      <p style="font-family:'Montserrat',sans-serif; font-size:12px; font-weight:300; color:rgba(255,255,255,0.6); line-height:1.8; font-style:italic; margin-bottom:14px;">"O gel ficou incrível. As unhas ficaram finas, lindas e duraram o mês todo sem quebrar. Angela é muito cuidadosa e atenciosa."</p>
+      <p style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:500; color:#fff; letter-spacing:2px; text-transform:uppercase;">— Mariana S., Aldeota</p>
+    </div>
+
+    <div class="review-card">
+      <div style="color:var(--gold); font-size:12px; letter-spacing:3px; margin-bottom:14px;">★★★★★</div>
+      <p style="font-family:'Montserrat',sans-serif; font-size:12px; font-weight:300; color:rgba(255,255,255,0.6); line-height:1.8; font-style:italic; margin-bottom:14px;">"Amei o Spa das Mãos! Saí completamente renovada. A mensalidade facilitou demais minha rotina de beleza."</p>
+      <p style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:500; color:#fff; letter-spacing:2px; text-transform:uppercase;">— Camila R., Meireles</p>
+    </div>
+
+    <div class="review-card">
+      <div style="color:var(--gold); font-size:12px; letter-spacing:3px; margin-bottom:14px;">★★★★★</div>
+      <p style="font-family:'Montserrat',sans-serif; font-size:12px; font-weight:300; color:rgba(255,255,255,0.6); line-height:1.8; font-style:italic; margin-bottom:14px;">"Fazer acrílico com quem realmente entende faz toda a diferença. O acabamento ficou super natural. Ninguém acredita que é alongamento!"</p>
+      <p style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:500; color:#fff; letter-spacing:2px; text-transform:uppercase;">— Juliana M., Cocó</p>
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ══════════════════════════════════════
+       9. LOCALIZAÇÃO
+  ══════════════════════════════════════ -->
+  <section style="background:var(--black); padding:52px 28px;">
+    <div style="text-align:center; margin-bottom:32px;">
+      <span class="eyebrow">Onde Estamos</span>
+      <h2 class="section-title">Nossa Localização</h2>
+      <div class="gold-rule" style="margin-bottom:0;"></div>
+    </div>
+
+    <div style="width:100%; height:220px; overflow:hidden; border:1px solid rgba(201,168,76,0.2); margin-bottom:20px;">
+      <iframe
+        src="https://maps.google.com/maps?q=Granja+Portugal+Fortaleza+CE+Brasil&output=embed"
+        style="width:100%; height:100%; border:0; display:block; filter:grayscale(1) invert(1);"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <div style="border:1px solid rgba(201,168,76,0.2); padding:24px; margin-bottom:16px;">
+      <p style="font-family:'Montserrat',sans-serif; font-size:9px; color:var(--gold); letter-spacing:3px; text-transform:uppercase; margin-bottom:8px;">Endereço</p>
+      <p style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:300; color:rgba(255,255,255,0.65); line-height:1.65; margin-bottom:18px;">Granja Portugal, Fortaleza — CE</p>
+      <p style="font-family:'Montserrat',sans-serif; font-size:9px; color:var(--gold); letter-spacing:3px; text-transform:uppercase; margin-bottom:8px;">Horário de Atendimento</p>
+      <p style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:300; color:rgba(255,255,255,0.65); line-height:1.65;">Seg a Sex: 9h às 19h<br>Sábado: 9h às 16h</p>
+    </div>
+
+    <a href="https://maps.google.com/maps?q=Granja+Portugal+Fortaleza+CE" target="_blank" style="display:block; text-align:center; border:1px solid var(--gold); color:var(--gold); font-family:'Montserrat',sans-serif; font-size:9px; font-weight:500; letter-spacing:3px; text-transform:uppercase; padding:14px;">
+      Ver no Google Maps
+    </a>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ══════════════════════════════════════
+       10. FAQ
+  ══════════════════════════════════════ -->
+  <section id="faq" style="background:var(--black-mid); padding:52px 28px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <span class="eyebrow">Dúvidas</span>
+      <h2 class="section-title">Perguntas Frequentes</h2>
+      <div class="gold-rule" style="margin-bottom:0;"></div>
+    </div>
+
+    <div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-question">Qual a diferença entre gel e acrílico?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-content">
+          <p>O gel fica mais natural e é mais rápido de aplicar. O acrílico é mais resistente para quem exige mais das unhas no dia a dia. Juntas, vamos escolher o melhor para o seu estilo de vida.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-question">Como funciona a mensalidade?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-content">
+          <p>Você escolhe o plano e garante um dia e horário fixo na agenda todos os meses. Assim não corre risco de ficar sem vaga e ainda economiza no valor total.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-question">O alongamento machuca as unhas?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-content">
+          <p>Não. O que pode machucar é a remoção errada. Aqui usamos um processo cuidadoso que preserva completamente a saúde da sua unha natural em todos os procedimentos.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="faq-question">Quanto tempo dura o atendimento?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-content">
+          <p>A manutenção leva em média 1 hora. A aplicação completa com Spa das Mãos pode levar até 2 horas. Sempre com toda a atenção e cuidado que você merece.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ══════════════════════════════════════
+       11. CTA FINAL
+  ══════════════════════════════════════ -->
+  <section id="cta" style="background:var(--black); padding:52px 28px; text-align:center;">
+    <h2 style="font-family:'Playfair Display',serif; font-style:italic; font-size:32px; color:#fff; line-height:1.3; margin-bottom:10px;">
+      Pronta para ter<br>unhas perfeitas?
+    </h2>
+    <p style="font-family:'Montserrat',sans-serif; font-size:12px; font-weight:300; color:rgba(255,255,255,0.4); margin-bottom:32px;">
+      Vagas limitadas. Reserve a sua agora.
+    </p>
+    <button onclick="openModal()" style="display:block; background:var(--gold); color:#000; font-family:'Montserrat',sans-serif; font-size:10px; font-weight:600; letter-spacing:3px; text-transform:uppercase; padding:18px; width:100%; border:none; cursor:pointer;">
+      Garantir Meu Horário
+    </button>
+    <p style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:300; color:rgba(255,255,255,0.3); letter-spacing:2px; margin-top:20px;">
+      Pix · Cartão · Dinheiro
+    </p>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- ══════════════════════════════════════
+       12. FOOTER
+  ══════════════════════════════════════ -->
+  <footer style="background:var(--black); padding:36px 28px 100px; text-align:center;">
+
+    <nav class="footer-nav">
+      <a href="#servicos">Serviços</a>
+      <span class="dot">·</span>
+      <a href="#portfolio">Portfólio</a>
+      <span class="dot">·</span>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <a href="https://instagram.com/angelafloresmalteria" target="_blank"
+       style="font-family:'Montserrat',sans-serif; font-size:12px; font-weight:400; color:var(--gold); letter-spacing:2px; display:block; margin-bottom:18px;">
+      @angelafloresmalteria
+    </a>
+
+    <p style="font-family:'Montserrat',sans-serif; font-size:9px; font-weight:300; color:rgba(255,255,255,0.22); letter-spacing:1px; margin-bottom:8px;">
+      Seg–Sex: 9h às 19h &nbsp;·&nbsp; Sáb: 9h às 16h
+    </p>
+    <p style="font-family:'Montserrat',sans-serif; font-size:9px; font-weight:300; color:rgba(255,255,255,0.14); margin-bottom:6px;">
+      © 2026 Angela Flor Esmalteria. Todos os direitos reservados.
+    </p>
+    <p style="font-family:'Montserrat',sans-serif; font-size:9px; font-weight:300; color:rgba(201,168,76,0.2); letter-spacing:1.5px; text-transform:uppercase;">
+      Desenvolvido por X4 Serviços Gráficos
+    </p>
+
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       13. BOTÃO FIXO MOBILE
+  ══════════════════════════════════════ -->
+  <button onclick="openModal()" class="fixed-cta" style="border:none;cursor:pointer;">
+    Agendar Meu Horário →
+  </button>
+
+  <!-- ══════════════════════════════════════
+       LINK ADMIN (DISCRETO)
+  ══════════════════════════════════════ -->
+  <a class="adm-lk" href="admin.html" title="Área administrativa">🔒</a>
+
+  <!-- ══════════════════════════════════════
+       MODAL DE AGENDAMENTO
+  ══════════════════════════════════════ -->
+  <div id="bModal" role="dialog" aria-modal="true" aria-label="Agendamento" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.96);overflow-y:auto;-webkit-overflow-scrolling:touch;">
+    <div style="max-width:480px;margin:0 auto;min-height:100vh;background:#0D0D0D;position:relative;padding:16px 24px 72px;">
+
+      <button onclick="closeModal()" aria-label="Fechar" style="position:absolute;top:14px;right:14px;background:none;border:1px solid rgba(201,168,76,.25);color:rgba(201,168,76,.6);width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;z-index:1;flex-shrink:0;">✕</button>
+
+      <div style="padding-top:46px;text-align:center;margin-bottom:18px;">
+        <span style="font-family:'Montserrat',sans-serif;font-size:8px;font-weight:500;color:var(--gold);letter-spacing:4px;text-transform:uppercase;">Angela Flor Esmalteria</span>
+      </div>
+
+      <div id="mBar" style="display:flex;align-items:center;justify-content:center;margin-bottom:26px;"></div>
+
+      <!-- Etapa 1: Serviço -->
+      <div class="mpanel active" id="mp1">
+        <span class="m-ey">Etapa 1 de 5</span>
+        <h2 class="m-h">Escolha o Procedimento</h2>
+        <div id="mSvcBox"><div class="mld"><div class="mspin"></div>Carregando serviços...</div></div>
+      </div>
+
+      <!-- Etapa 2: Dia -->
+      <div class="mpanel" id="mp2">
+        <span class="m-ey">Etapa 2 de 5</span>
+        <h2 class="m-h">Escolha o Dia</h2>
+        <div id="mCalBox"><div class="mld"><div class="mspin"></div>Carregando...</div></div>
+      </div>
+
+      <!-- Etapa 3: Horário -->
+      <div class="mpanel" id="mp3">
+        <span class="m-ey">Etapa 3 de 5</span>
+        <h2 class="m-h">Escolha o Horário</h2>
+        <div class="msi" id="mSlotInfo"></div>
+        <div id="mSlotBox"><div class="mld"><div class="mspin"></div>Verificando...</div></div>
+      </div>
+
+      <!-- Etapa 4: Dados -->
+      <div class="mpanel" id="mp4">
+        <span class="m-ey">Etapa 4 de 5</span>
+        <h2 class="m-h">Seus Dados</h2>
+        <div class="mff">
+          <label class="mfl" for="mNome">Nome completo</label>
+          <input class="mfi" type="text" id="mNome" placeholder="Seu nome completo" autocomplete="name">
+        </div>
+        <div class="mff">
+          <label class="mfl" for="mWpp">WhatsApp</label>
+          <input class="mfi" type="tel" id="mWpp" placeholder="(00) 00000-0000" maxlength="15" autocomplete="tel">
+        </div>
+        <div class="mmsg mmsg-e" id="mMsgDt"></div>
+        <div class="mnav">
+          <button class="mbtn mbtn-o" onclick="mGo(3)">← Voltar</button>
+          <button class="mbtn mbtn-g" onclick="mStep4()">Próximo →</button>
+        </div>
+      </div>
+
+      <!-- Etapa 5: Confirmação -->
+      <div class="mpanel" id="mp5">
+        <span class="m-ey">Etapa 5 de 5</span>
+        <h2 class="m-h">Confirmação</h2>
+        <div class="mcard" id="mSum"></div>
+        <div class="mpix" id="mPix"></div>
+        <div class="mmsg mmsg-e" id="mMsgCf"></div>
+        <div class="mmsg mmsg-s" id="mMsgOk"></div>
+        <div class="mnav">
+          <button class="mbtn mbtn-o" id="mBtnBk" onclick="mGo(4)">← Voltar</button>
+          <button class="mbtn mbtn-w" id="mBtnWp" onclick="mSubmit()">📱 Enviar comprovante</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════ -->
+  <script>
+    /* FAQ Sanfona */
+    function toggleFaq(btn) {
+      var item    = btn.parentElement;
+      var content = item.querySelector('.faq-content');
+      var icon    = item.querySelector('.faq-icon');
+      var isOpen  = !!content.style.maxHeight;
+
+      document.querySelectorAll('.faq-item').forEach(function(el) {
+        el.querySelector('.faq-content').style.maxHeight = null;
+        el.querySelector('.faq-icon').textContent = '+';
+        el.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.textContent = '−';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    /* Contador com IntersectionObserver */
+    (function () {
+      var counters  = document.querySelectorAll('.counter-num');
+      var triggered = false;
+
+      function run() {
+        if (triggered) return;
+        triggered = true;
+        counters.forEach(function (el) {
+          var target = parseInt(el.getAttribute('data-target'), 10);
+          var suffix = el.getAttribute('data-suffix') || '';
+          var current = 0;
+          var step    = Math.max(1, Math.ceil(target / 50));
+          var timer   = setInterval(function () {
+            current = Math.min(current + step, target);
+            el.textContent = current + suffix;
+            if (current >= target) clearInterval(timer);
+          }, 25);
+        });
+      }
+
+      var grid = document.querySelector('.counter-grid');
+      if ('IntersectionObserver' in window && grid) {
+        new IntersectionObserver(function (entries, obs) {
+          if (entries[0].isIntersecting) { run(); obs.disconnect(); }
+        }, { threshold: 0.4 }).observe(grid);
+      } else {
+        run();
+      }
+    })();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+  // ═══ MODAL DE AGENDAMENTO ═══════════════════════════════
+  const SB_URL  = 'https://qjegvyhqdzecoujjhgqk.supabase.co';
+  const SB_KEY  = 'sb_publishable_K8SvMPdlcHrGeZdCw5apQA_nC8jknat';
+  const PIX_KEY = 'CHAVE_PIX_ANGELA';
+  const WPP_NUM = '5585986636885';
+  const SLOTS_W = ['09:00','10:30','12:00','13:30','15:00','16:30'];
+  const SLOTS_S = ['09:00','10:30','12:00','13:30'];
+
+  let _sb = null;
+  function getSb() { if (!_sb) _sb = supabase.createClient(SB_URL, SB_KEY); return _sb; }
+
+  let mSvcs = [];
+  let mBk = { svc:null, data:null, hora:null, nome:'', wpp:'' };
+
+  // ── Abrir / Fechar ──────────────────────────────────────
+  function openModal() {
+    mReset();
+    document.getElementById('bModal').style.display = 'block';
+    document.documentElement.style.overflow = 'hidden';
+    mUpdateBar(1);
+    mLoadSvcs();
+  }
+  function closeModal() {
+    document.getElementById('bModal').style.display = 'none';
+    document.documentElement.style.overflow = '';
+  }
+  document.getElementById('bModal').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+
+  function mReset() {
+    mBk = { svc:null, data:null, hora:null, nome:'', wpp:'' };
+    document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('mp1').classList.add('active');
+    document.getElementById('mNome').value = '';
+    document.getElementById('mWpp').value  = '';
+  }
+
+  // ── Utilidades ──────────────────────────────────────────
+  function mFmtD(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+  function mFmtBR(s){ const[y,m,d]=s.split('-'); return d+'/'+m+'/'+y; }
+  function mDow(s){ return new Date(s+'T12:00:00').getDay(); }
+  function mShow(id,txt,t){ const e=document.getElementById(id); e.className='mmsg mmsg-'+t+' show'; e.textContent=txt; }
+  function mHide(id){ document.getElementById(id).classList.remove('show'); }
+
+  // ── Step bar ────────────────────────────────────────────
+  function mUpdateBar(n) {
+    const bar = document.getElementById('mBar');
+    bar.innerHTML = '';
+    for(let i=1;i<=5;i++){
+      const dot = document.createElement('div');
+      dot.className = 'msdot'+(i<n?' done':i===n?' active':'');
+      dot.textContent = i<n?'✓':i;
+      bar.appendChild(dot);
+      if(i<5){ const ln=document.createElement('div'); ln.className='msline'+(i<n?' done':''); bar.appendChild(ln); }
+    }
+  }
+
+  function mGo(n) {
+    if(n===2&&!mBk.svc){ alert('Selecione um serviço.'); return; }
+    if(n===3&&!mBk.data){ alert('Selecione um dia.'); return; }
+    if(n===4&&!mBk.hora){ alert('Selecione um horário.'); return; }
+    document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('mp'+n).classList.add('active');
+    mUpdateBar(n);
+    document.getElementById('bModal').scrollTop = 0;
+    if(n===2) mBuildCal();
+    if(n===3) mBuildSlots();
+    if(n===5) mBuildConfirm();
+  }
+
+  function mStep4() {
+    const nome = document.getElementById('mNome').value.trim();
+    const wpp  = document.getElementById('mWpp').value.trim();
+    if(nome.length<3){ mShow('mMsgDt','Informe seu nome completo.','e'); return; }
+    if(wpp.replace(/\D/g,'').length<10){ mShow('mMsgDt','Informe um WhatsApp válido com DDD.','e'); return; }
+    mHide('mMsgDt');
+    mBk.nome = nome; mBk.wpp = wpp;
+    mGo(5);
+  }
+
+  // Máscara WhatsApp
+  document.getElementById('mWpp').addEventListener('input', function(){
+    let v=this.value.replace(/\D/g,'').slice(0,11), o='';
+    if(v.length>0) o='('+v.slice(0,2);
+    if(v.length>2){ o+=') '; o+=v.length<=10?v.slice(2,6):v.slice(2,7); }
+    if(v.length>10) o+='-'+v.slice(7,11);
+    else if(v.length>6) o+='-'+v.slice(6,10);
+    this.value=o;
+  });
+
+  // ── Etapa 1: Serviços ───────────────────────────────────
+  async function mLoadSvcs() {
+    const box = document.getElementById('mSvcBox');
+    box.innerHTML = '<div class="mld"><div class="mspin"></div>Carregando serviços...</div>';
+    const { data, error } = await getSb().from('servicos').select('*').eq('ativo',true).order('categoria').order('nome');
+    if(error||!data){ box.innerHTML='<div class="mmsg mmsg-e show">Erro ao carregar serviços.</div>'; return; }
+    mSvcs = data;
+    const byG = {};
+    data.forEach(s=>{ const g=s.categoria||s.grupo||'Serviços'; if(!byG[g])byG[g]=[]; byG[g].push(s); });
+    const ord = ['Alongamento','Manutenção'];
+    const keys = [...ord.filter(k=>byG[k]), ...Object.keys(byG).filter(k=>!ord.includes(k)&&!k.toLowerCase().includes('mensalidade'))];
+    let html = '';
+    keys.forEach(g=>{
+      html+=`<div class="msvc-grp">${g}</div>`;
+      byG[g].forEach(s=>{
+        const p=parseFloat(s.valor).toFixed(2).replace('.',',');
+        html+=`<div class="msvc" id="msvc-${s.id}" onclick="mSelSvc(${s.id})">
+          <span class="msvc-n">${s.nome}</span>
+          <span style="display:flex;align-items:center;gap:6px"><span class="msvc-p">R$ ${p}</span><span class="msvc-ck">✦</span></span>
+        </div>`;
+      });
+    });
+    html+=`<div class="mnav" style="margin-top:20px"><button class="mbtn mbtn-g" onclick="mGo(2)">Próximo →</button></div>`;
+    box.innerHTML = html;
+  }
+
+  function mSelSvc(id) {
+    mBk.svc = mSvcs.find(s=>s.id===id);
+    document.querySelectorAll('.msvc').forEach(e=>e.classList.remove('sel'));
+    document.getElementById('msvc-'+id).classList.add('sel');
+  }
+
+  // ── Etapa 2: Calendário ─────────────────────────────────
+  async function mBuildCal() {
+    const box = document.getElementById('mCalBox');
+    box.innerHTML = '<div class="mld"><div class="mspin"></div>Carregando...</div>';
+    const today = new Date(); today.setHours(0,0,0,0);
+    const end = new Date(today); end.setDate(end.getDate()+30);
+    const t0=mFmtD(today), t1=mFmtD(end);
+    const [r1,r2] = await Promise.all([
+      getSb().from('horarios_bloqueados').select('data,horario').gte('data',t0).lte('data',t1),
+      getSb().from('agendamentos').select('data,horario').gte('data',t0).lte('data',t1).neq('status','cancelado')
+    ]);
+    const blk={}, bok={};
+    (r1.data||[]).forEach(r=>{ if(!blk[r.data])blk[r.data]=[]; blk[r.data].push(r.horario); });
+    (r2.data||[]).forEach(r=>{ if(!bok[r.data])bok[r.data]=[]; bok[r.data].push(r.horario); });
+    function isFull(ds,dw){ const sl=dw===6?SLOTS_S:SLOTS_W; const tk=new Set([...(blk[ds]||[]),...(bok[ds]||[])]); return sl.every(s=>tk.has(s)); }
+    const mN=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+    const months=[]; let cur=new Date(today); cur.setDate(1);
+    while(cur<=end){ months.push(new Date(cur)); cur.setMonth(cur.getMonth()+1); }
+    let html='';
+    months.forEach(ms=>{
+      const me=new Date(ms); me.setMonth(me.getMonth()+1); me.setDate(0);
+      html+=`<div class="mcal"><div class="mcal-m">${mN[ms.getMonth()]} ${ms.getFullYear()}</div>
+        <div class="mcal-wds"><div class="mcal-wd">Dom</div><div class="mcal-wd">Seg</div><div class="mcal-wd">Ter</div><div class="mcal-wd">Qua</div><div class="mcal-wd">Qui</div><div class="mcal-wd">Sex</div><div class="mcal-wd">Sáb</div></div>
+        <div class="mcal-ds">`;
+      for(let i=0;i<ms.getDay();i++) html+='<div class="mcd emp"></div>';
+      for(let day=1;day<=me.getDate();day++){
+        const d=new Date(ms); d.setDate(day);
+        const ds=mFmtD(d), dw=d.getDay();
+        let cls='mcd', click=false;
+        if(d<today||d>end) cls+=' old';
+        else if(dw===0) cls+=' sun';
+        else if(isFull(ds,dw)) cls+=' full';
+        else { cls+=' ok'; click=true; }
+        if(mBk.data===ds) cls+=' on';
+        html+=click?`<div class="${cls}" onclick="mSelDay(this,'${ds}')">${day}</div>`:`<div class="${cls}">${day}</div>`;
+      }
+      html+='</div></div>';
+    });
+    html+=`<div class="mnav"><button class="mbtn mbtn-o" onclick="mGo(1)">← Voltar</button><button class="mbtn mbtn-g" onclick="mGo(3)">Próximo →</button></div>`;
+    box.innerHTML = html;
+  }
+
+  function mSelDay(el,ds){ mBk.data=ds; mBk.hora=null; document.querySelectorAll('.mcd.on').forEach(e=>e.classList.remove('on')); el.classList.add('on'); }
+
+  // ── Etapa 3: Horários ───────────────────────────────────
+  async function mBuildSlots() {
+    const box = document.getElementById('mSlotBox');
+    box.innerHTML = '<div class="mld"><div class="mspin"></div>Verificando...</div>';
+    const dw=mDow(mBk.data), slots=dw===6?SLOTS_S:SLOTS_W;
+    const dn=['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
+    document.getElementById('mSlotInfo').textContent = dn[dw]+' · '+mFmtBR(mBk.data);
+    const [r1,r2] = await Promise.all([
+      getSb().from('horarios_bloqueados').select('horario').eq('data',mBk.data),
+      getSb().from('agendamentos').select('horario').eq('data',mBk.data).neq('status','cancelado')
+    ]);
+    const tk=new Set([...(r1.data||[]).map(r=>r.horario),...(r2.data||[]).map(r=>r.horario)]);
+    let html='<div class="mslg">';
+    slots.forEach(sl=>{
+      const dis=tk.has(sl), sel=mBk.hora===sl;
+      html+=`<button class="mslot${sel?' on':''}" ${dis?'disabled':`onclick="mSelSlot(this,'${sl}')"`}>${sl}</button>`;
+    });
+    html+=`</div><div class="mnav"><button class="mbtn mbtn-o" onclick="mGo(2)">← Voltar</button><button class="mbtn mbtn-g" onclick="mGo(4)">Próximo →</button></div>`;
+    box.innerHTML = html;
+  }
+
+  function mSelSlot(el,sl){ mBk.hora=sl; document.querySelectorAll('.mslot').forEach(b=>b.classList.remove('on')); el.classList.add('on'); }
+
+  // ── Etapa 5: Confirmação ────────────────────────────────
+  function mBuildConfirm() {
+    const val=parseFloat(mBk.svc.valor);
+    const sinal=Math.ceil(val*0.5);
+    const vStr=val.toFixed(2).replace('.',','), sStr=sinal.toFixed(2).replace('.',',');
+    document.getElementById('mSum').innerHTML=`
+      <div class="mrow"><span class="ml">Serviço</span><span class="mv">${mBk.svc.nome}</span></div>
+      <div class="mrow"><span class="ml">Valor total</span><span class="mv" style="color:var(--gold)">R$ ${vStr}</span></div>
+      <div class="mrow"><span class="ml">Data</span><span class="mv">${mFmtBR(mBk.data)}</span></div>
+      <div class="mrow"><span class="ml">Horário</span><span class="mv">${mBk.hora}</span></div>
+      <div class="mrow"><span class="ml">Nome</span><span class="mv">${mBk.nome}</span></div>
+      <div class="mrow"><span class="ml">WhatsApp</span><span class="mv">${mBk.wpp}</span></div>`;
+    document.getElementById('mPix').innerHTML=`
+      <div class="mpix-lb">Para garantir seu horário</div>
+      <div class="mpix-v">R$ ${sStr}</div>
+      <div class="mpix-s">envie este sinal via Pix</div>
+      <div class="mpix-k"><small style="display:block;opacity:.45;margin-bottom:2px;font-family:'Montserrat',sans-serif;font-size:.55rem;letter-spacing:1px;text-transform:uppercase;">Chave Pix</small>${PIX_KEY}</div>`;
+    mHide('mMsgCf'); mHide('mMsgOk');
+    const btn=document.getElementById('mBtnWp');
+    btn.disabled=false; btn.textContent='📱 Enviar comprovante no WhatsApp';
+    document.getElementById('mBtnBk').style.display='';
+  }
+
+  async function mSubmit() {
+    const btn=document.getElementById('mBtnWp');
+    btn.disabled=true; btn.textContent='⏳ Registrando...';
+    mHide('mMsgCf');
+    const {error}=await getSb().from('agendamentos').insert({
+      servico_id:   mBk.svc.id,
+      servico_nome: mBk.svc.nome,
+      servico_valor: mBk.svc.valor,
+      data:         mBk.data,
+      horario:      mBk.hora,
+      nome_cliente: mBk.nome,
+      whatsapp:     mBk.wpp.replace(/\D/g,''),
+      status:       'pendente'
+    });
+    if(error){
+      btn.disabled=false; btn.textContent='📱 Enviar comprovante no WhatsApp';
+      mShow('mMsgCf','Erro ao registrar. Tente novamente.','e'); return;
+    }
+    mShow('mMsgOk','✓ Agendamento registrado! Abrindo WhatsApp...','s');
+    document.getElementById('mBtnBk').style.display='none';
+    const sinal=Math.ceil(parseFloat(mBk.svc.valor)*0.5).toFixed(2).replace('.',',');
+    const msg=`Olá Angela! Quero agendar: Serviço: ${mBk.svc.nome} — Dia: ${mFmtBR(mBk.data)} — Horário: ${mBk.hora} — Nome: ${mBk.nome} — Sinal: R$${sinal} via Pix — segue o comprovante em anexo 💅`;
+    setTimeout(()=>{ window.open(`https://wa.me/${WPP_NUM}?text=${encodeURIComponent(msg)}`,'_blank'); btn.textContent='✅ WhatsApp aberto!'; },800);
+  }
+  </script>
+</body>
+</html>
